@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Результат — Фосфены</title>
+  <link rel="stylesheet" href="css/glass.css">
+  <link rel="stylesheet" href="css/result.css">
+</head>
+<body>
+
+<div class="result-wrap">
+  <div class="glass result-container">
+
+    <!-- Карточка результата (её и скринит пользователь) -->
+    <div class="result-card" id="resultCard">
+
+      <div class="result-header">
+        <div class="result-logo">
+          <span class="result-mark" aria-hidden="true"></span>
+          <span>PHOSPHENE LAB</span>
+        </div>
+        <div class="result-id" id="rId">—</div>
+      </div>
+
+      <h2 class="result-title">Карточка эксперимента</h2>
+
+      <div class="result-rows">
+        <div class="result-row">
+          <span class="result-label">Дата</span>
+          <span class="result-value" id="rDate">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Частота вспышек</span>
+          <span class="result-value accent" id="rFreq">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Цвет <span class="result-color-dot" id="rColorDot"></span>
+          </span>
+          <span class="result-value" id="rColor">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Стимуляция (глаза открыты)</span>
+          <span class="result-value" id="rStim">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Наблюдение (глаза закрыты)</span>
+          <span class="result-value" id="rObs">—</span>
+        </div>
+      </div>
+
+      <div class="result-footer">
+        Веб-инструмент для индукции фосфенов мерцающим светом.<br>
+        ID нужен для привязки вашего описания к параметрам эксперимента.
+      </div>
+    </div>
+
+    <!-- Действия -->
+    <div class="result-actions">
+
+      <div class="action-hint">
+        <strong>1.</strong> Сделайте скриншот карточки выше.<br>
+        <strong>2.</strong> Скопируйте ID эксперимента.<br>
+        <strong>3.</strong> Перейдите к форме и опишите, что вы видели.
+      </div>
+
+      <button class="btn" id="copyIdBtn">
+        Скопировать ID
+      </button>
+
+      <button class="btn btn-primary" id="goToFormBtn">
+        Перейти к форме
+      </button>
+
+    </div>
+
+  </div>
+
+  <a class="btn btn-back" href="index.html">← На главную</a>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/result.js"></script>
+</body>
+</html>

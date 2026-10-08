@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Фосфены — Эксперимент</title>
+  <link rel="stylesheet" href="css/glass.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="center">
+  <div class="glass main-card">
+
+    <div class="hero">
+      <div class="hero-mark" aria-hidden="true"></div>
+      <h1>Фосфены</h1>
+      <p class="subtitle">Веб-инструмент для индукции зрительных феноменов мерцающим светом</p>
+    </div>
+
+    <div class="warning-block">
+      
+      <div class="warning-text">
+        <strong>Внимание!</strong> Если у вас эпилепсия, мигрень или
+        повышенная чувствительность к мерцающему свету — <b>не запускайте эксперимент</b>.
+        Мерцание может спровоцировать приступ.
+      </div>
+    </div>
+
+    <div class="instructions">
+      <h3>Как это работает</h3>
+      <ol class="steps">
+        <li><span class="step-num">1</span><span class="step-text">Сядьте в <b>полностью тёмной комнате</b>, экран — единственный источник света</span></li>
+        <li><span class="step-num">2</span><span class="step-text">Выберите частоту, цвет и длительности фаз</span></li>
+        <li><span class="step-num">3</span><span class="step-text">Нажмите «Начать» и <b>смотрите прямо на центр экрана</b>, не отводя взгляда</span></li>
+        <li><span class="step-num">4</span><span class="step-text">Когда вспышки прекратятся — <b>сразу закройте глаза и накройте лицо ладонями</b></span></li>
+        <li><span class="step-num">5</span><span class="step-text">Смотрите на узоры под веками до конца отсчёта</span></li>
+        <li><span class="step-num">6</span><span class="step-text">Откройте глаза и опишите увиденное</span></li>
+      </ol>
+    </div>
+
+    <div class="settings">
+      <h3>Параметры</h3>
+
+      <div class="setting-row">
+        <label>Частота вспышек</label>
+        <div class="freq-buttons" id="freqButtons"></div>
+      </div>
+
+      <div class="setting-row">
+        <label>Цвет</label>
+        <div class="color-buttons" id="colorButtons"></div>
+      </div>
+
+      <div class="setting-row">
+        <label>Стимуляция (глаза открыты)</label>
+        <div class="freq-buttons" id="stimButtons"></div>
+      </div>
+
+      <div class="setting-row">
+        <label>Наблюдение (глаза закрыты)</label>
+        <div class="freq-buttons" id="obsButtons"></div>
+      </div>
+    </div>
+
+    <label class="consent">
+      <input type="checkbox" id="consentCheck">
+      <span>Я подтверждаю, что у меня нет эпилепсии и мигрени, и я согласен участвовать в эксперименте</span>
+    </label>
+
+    <button class="btn btn-primary btn-start" id="startBtn" disabled>
+      Начать эксперимент
+    </button>
+
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

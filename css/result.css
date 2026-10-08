@@ -1,0 +1,52 @@
+/* Result page */
+.result-wrap {
+  min-height:100svh;
+  padding:clamp(18px,4vw,36px);
+  display:flex; flex-direction:column; align-items:center; gap:18px;
+}
+.result-container { width:min(100%,620px); padding:clamp(20px,4vw,32px); }
+.result-card {
+  padding:clamp(18px,4vw,28px);
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+  border-radius:8px;
+  margin-bottom:18px;
+}
+.result-header {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin-bottom:22px; padding-bottom:16px; border-bottom:1px solid var(--line);
+}
+.result-logo { display:flex; align-items:center; gap:9px; font-size:13px; font-weight:700; letter-spacing:.04em; color:var(--text-2); }
+.result-mark { width:24px; height:3px; background:var(--accent); display:inline-block; }
+.result-id {
+  font:12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;
+  color:var(--text-3); padding:6px 8px;
+  background:rgba(255,255,255,.025); border:1px solid var(--line); border-radius:5px;
+}
+.result-title { font-size:21px; margin-bottom:18px; }
+.result-rows { display:flex; flex-direction:column; }
+.result-row {
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:11px 0; border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:14px;
+}
+.result-label { color:var(--text-2); display:flex; align-items:center; gap:8px; }
+.result-value { color:var(--text); font-weight:650; text-align:right; }
+.result-value.accent { color:#b9c3ff; }
+.result-color-dot { width:11px; height:11px; border-radius:50%; border:1px solid rgba(255,255,255,.35); }
+.result-footer {
+  margin-top:18px; padding-top:15px; border-top:1px solid var(--line);
+  color:var(--text-3); font-size:12px; line-height:1.5;
+}
+.result-actions { display:flex; flex-direction:column; gap:9px; }
+.action-hint {
+  padding:12px 0; color:var(--text-2); font-size:13px; line-height:1.55;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.action-hint strong { color:var(--text); }
+.btn-back { align-self:center; font-size:13px; opacity:.75; text-decoration:none; }
+
+@media (max-width:520px) {
+  .result-row { align-items:flex-start; flex-direction:column; gap:4px; }
+  .result-value { text-align:left; }
+}

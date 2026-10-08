@@ -1,0 +1,210 @@
+/* Main page — simple structure, buttons remain */
+.main-card {
+  width:min(100%, 760px);
+  padding:clamp(22px,4vw,38px);
+}
+
+.hero { text-align:left; margin-bottom:28px; }
+.hero-mark {
+  width:34px; height:3px; margin-bottom:18px;
+  background:var(--accent);
+  opacity:.8;
+}
+.hero h1 { margin-bottom:10px; }
+.subtitle {
+  max-width:650px;
+  color:var(--text-2);
+  font-size:15px;
+  line-height:1.6;
+}
+
+.warning-block {
+  display:flex;
+  gap:12px;
+  padding:14px 16px;
+  margin-bottom:28px;
+  background:rgba(255,138,138,.055);
+  border:1px solid rgba(255,138,138,.2);
+  border-left:3px solid rgba(255,138,138,.7);
+  border-radius:6px;
+}
+.warning-text { font-size:14px; line-height:1.55; color:#d8c4c4; }
+.warning-text strong { color:var(--danger); }
+
+.instructions, .settings { margin-bottom:28px; }
+.instructions h3, .settings h3 {
+  margin-bottom:12px;
+  color:var(--text);
+  text-transform:none;
+  letter-spacing:0;
+}
+.steps {
+  list-style:none; padding:0; margin:0;
+  display:grid; gap:0;
+  border-top:1px solid var(--line);
+}
+.steps li {
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:10px;
+  align-items:start;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+  line-height:1.5;
+  color:var(--text-2);
+}
+.step-num {
+  width:24px; height:24px;
+  display:grid; place-items:center;
+  border:1px solid var(--line-strong);
+  border-radius:50%;
+  font-size:12px;
+  color:var(--text);
+}
+
+.setting-row {
+  display:grid;
+  grid-template-columns:minmax(170px,1fr) minmax(0,2fr);
+  align-items:center;
+  gap:18px;
+  padding:15px 0;
+  border-top:1px solid var(--line);
+}
+.setting-row:last-child { border-bottom:1px solid var(--line); }
+.setting-row > label { font-size:14px; color:var(--text-2); }
+
+.freq-buttons,.color-buttons {
+  display:flex; flex-wrap:wrap; gap:7px;
+  justify-content:flex-start;
+}
+.freq-btn,.color-btn,.duration-btn {
+  min-height:40px;
+  padding:8px 13px;
+  font:600 13px/1 var(--font);
+  color:var(--text-2);
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+  border-radius:7px;
+  cursor:pointer;
+  touch-action:manipulation;
+}
+.freq-btn:hover,.color-btn:hover,.duration-btn:hover {
+  background:var(--surface-hover); color:var(--text);
+}
+.freq-btn.active,.duration-btn.active {
+  background:var(--accent-soft);
+  border-color:rgba(142,161,255,.45);
+  color:var(--text);
+  box-shadow:none;
+}
+.color-btn { display:inline-flex; align-items:center; gap:8px; }
+.color-btn .dot {
+  width:12px; height:12px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.35);
+}
+.color-btn.active { background:rgba(255,255,255,.08); border-color:var(--line-strong); color:var(--text); }
+
+.consent {
+  display:flex; align-items:flex-start; gap:10px;
+  margin:0 0 18px; padding:0;
+  font-size:13px; line-height:1.5; color:var(--text-2);
+  cursor:pointer;
+}
+.consent input {
+  width:18px; height:18px; flex:0 0 auto;
+  margin:1px 0 0; accent-color:var(--accent);
+}
+.btn-start { width:100%; min-height:50px; }
+
+@media (max-width:700px) {
+  .setting-row { grid-template-columns:1fr; gap:10px; }
+}
+@media (max-width:430px) {
+  .main-card { padding:20px 16px; }
+  .steps li { font-size:13px; }
+  .freq-btn,.color-btn,.duration-btn { min-height:42px; padding:9px 11px; }
+}
+@media (orientation:landscape) and (max-height:600px) {
+  .center { align-items:flex-start; }
+  .main-card { margin:14px 0; }
+}
+
+
+/* Layout safety: prevent text overlap at every viewport size */
+.instructions,
+.settings,
+.warning-block,
+.steps,
+.steps li,
+.setting-row {
+  position:relative;
+  width:100%;
+  min-width:0;
+}
+
+.instructions h3,
+.settings h3 {
+  display:block;
+  position:relative;
+  z-index:1;
+  line-height:1.35;
+}
+
+@media (max-width:520px) {
+  .main-card {
+    width:100%;
+    max-width:100%;
+  }
+
+  .hero {
+    margin-bottom:24px;
+  }
+
+  .instructions,
+  .settings {
+    margin-bottom:24px;
+  }
+
+  .steps li {
+    gap:10px;
+    padding:12px 0;
+  }
+
+  .step-num {
+    flex:0 0 24px;
+  }
+
+  .warning-block {
+    align-items:flex-start;
+  }
+}
+
+@media (max-width:360px) {
+  .main-card {
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .steps li {
+    font-size:13px;
+  }
+
+  .setting-row {
+    padding:12px 0;
+  }
+}
+
+
+/* Instruction rows: number and text are separate flex items */
+.steps li .step-num {
+  flex: 0 0 24px;
+}
+.steps li .step-text {
+  display:block;
+  flex:1 1 auto;
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
