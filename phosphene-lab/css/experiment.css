@@ -1,0 +1,162 @@
+/* Эксперимент: чёрный фон, вспышки, минимальный UI */
+
+body.experiment-mode {
+  background: #000;
+  overflow: hidden;
+}
+
+body.experiment-mode::before,
+body.experiment-mode::after {
+  display: none;
+}
+
+#flashCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+  z-index: 1;
+}
+
+/* Верхняя панель с прогрессом */
+.exp-header {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.exp-header:hover {
+  opacity: 1;
+}
+
+.exp-timer {
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 52px;
+}
+
+.exp-progress-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.exp-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #a064ff);
+  transition: width 0.2s linear;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.exp-status {
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+/* Текстовая инструкция по центру в начале */
+.center-hint {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  pointer-events: none;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+.center-hint h2 {
+  font-size: clamp(24px, 4vw, 36px);
+  margin-bottom: 12px;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(123, 140, 255, 0.5);
+}
+
+.center-hint p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.9; }
+  50%      { opacity: 0.5; }
+}
+
+/* Кнопка "Стоп" в углу */
+.btn-stop {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 20;
+  padding: 12px 24px;
+  font-size: 14px;
+  background: rgba(255, 107, 107, 0.15);
+  border-color: rgba(255, 107, 107, 0.3);
+  color: #ffb0b0;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.btn-stop:hover {
+  opacity: 1;
+  background: rgba(255, 107, 107, 0.25);
+}
+
+/* Финальный экран (после завершения) */
+.finish-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.finish-card {
+  max-width: 460px;
+  width: 100%;
+  padding: 40px 32px;
+  text-align: center;
+  animation: fadeUp 0.5s ease;
+}
+
+.finish-card h2 {
+  margin-bottom: 16px;
+}
+
+.finish-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
